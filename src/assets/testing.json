@@ -1,0 +1,124 @@
+[{
+    "id": 1,
+    "name": "Name of Filter 1",
+    "slug": "name-of-filter-1",
+	"text": "Name of Filter 1",
+    "children": [{
+        "id": 2,
+        "name": "Name of Filter 2",
+        "slug": "name-of-filter-2",
+        "text": "Name of Filter 2",
+        "state": {
+			"expanded": true,
+            "draggable": true,
+            "dropable": true
+        },
+        "children": []
+    },  {
+        "id": 5,
+        "name": "Name of Filter 5",
+        "slug": "name-of-filter-5",
+        "text": "Name of Filter 5",
+        "state": {
+			"expanded": true,
+            "draggable": true,
+            "dropable": true
+        },
+        "children": [{
+			"id": 3,
+			"name": "Name of Filter 3",
+			"slug": "name-of-filter-3",
+			"text": "Name of Filter 3",
+			"state": {
+				"expanded": true,
+				"draggable": true,
+				"dropable": true
+			},
+			"children": [
+				{
+					"id": 4,
+					"name": "Name of Filter 4",
+					"slug": "name-of-filter-4",
+					"text": "Name of Filter 4",
+					"state": {
+						"expanded": true,
+						"draggable": true,
+						"dropable": false
+					},
+					"children": []
+				}
+			]
+		}]
+    }, {
+        "id": 21,
+        "name": "Name of Filter 21",
+        "slug": "name-of-filter-21",
+        "text": "Name of Filter 21",
+        "state": {
+			"expanded": true,
+            "draggable": true,
+            "dropable": true
+        },
+        "children": []
+    }],
+    "state": {
+		"expanded": true,
+        "draggable": true,
+        "dropable": true
+    }
+}, {
+    "id": 6,
+    "name": "Name of Filter 6",
+    "slug": "name-of-filter-6",
+	"text": "Name of Filter 6",
+    "children": [{
+        "id": 7,
+        "name": "Name of Filter 7",
+        "slug": "name-of-filter-7",
+        "text": "Name of Filter 7",
+        "state": {
+			"expanded": true,
+            "draggable": true,
+            "dropable": true
+        },
+        "children": []
+    }, {
+        "id": 9,
+        "name": "Name of Filter 9",
+        "slug": "name-of-filter-9",
+        "text": "Name of Filter 9",
+        "state": {
+			"expanded": true,
+            "draggable": false,
+            "dropable": true
+        },
+        "children": []
+    }, {
+        "id": 10,
+        "name": "Name of Filter 10",
+        "slug": "name-of-filter-10",
+        "text": "Name of Filter 10",
+        "state": {
+			"expanded": true,
+            "draggable": true,
+            "dropable": true
+        },
+        "children": []
+    }],
+    "state": {
+		"expanded": true,
+        "draggable": true,
+        "dropable": true
+    }
+}, {
+	"id": 8,
+	"name": "Name of Filter 8",
+	"slug": "name-of-filter-8",
+	"text": "Name of Filter 8",
+	"state": {
+		"expanded": true,
+		"draggable": true,
+		"dropable": true
+	},
+	"children": []
+}]

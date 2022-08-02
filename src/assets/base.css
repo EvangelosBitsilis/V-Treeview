@@ -1,0 +1,85 @@
+.bw-tree {
+	line-height: 1.6;
+}
+
+.bw-tree * {
+	box-sizing: border-box;
+  	margin: 0;
+}
+
+.bw-level {
+	margin: -2px 0;
+	height: 0px;
+	padding-left: 1.35rem;
+}
+
+.bw-level.expanded {
+
+	height: auto;
+}
+
+.bw-item {
+	background-color: transparent;
+}
+
+.bw-info {
+	margin: -1px 0;
+	position: relative;
+	padding: 0.2rem 0 0.2rem 0.2rem;
+	border: solid transparent;
+	border-width: 2px 0;
+}
+
+.bw-item.bw-over > .bw-info {
+	border-top-color: green;
+}
+
+.bw-item.bw-below > .bw-info {
+	border-bottom-color: green;
+}
+
+.bw-item.bw-within > .bw-info{
+	background-color: green;
+}
+
+.bw-item.bw-dragging {
+	opacity: 0.6;
+}
+
+.bw-arrow-btn {
+	margin-right: 0.5rem;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	background: transparent;
+	color: inherit;
+	border: transparent;
+	position: absolute;
+	left: -18px;
+}
+
+.bw-arrow-btn.expanded > .bw-arrow {
+	transform: rotate(90deg);
+}
+
+.bw-ghost {
+	position: absolute;
+	left: -100%;
+	border-radius: 9999px;
+	padding: 0.3rem 0.5rem;
+}
+
+.bw-info {
+	display: flex;
+	align-items: center;
+}
+
+.bw-info > div:first-child {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.bw-info > div:nth-child(2) {
+	width: 100%;
+}
