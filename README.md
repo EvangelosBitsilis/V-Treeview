@@ -1,28 +1,28 @@
-# V - Tree
-V - Tree is a Vue 3 component with drag and drop functionality.
+# V - Treeview
+V - Treeview is a Vue 3 component with drag n drop and collapse functionality.
 
 ## Installation
 
-> npm i @evangelos_bitsilis/v-tree
+> npm i @evangelos_bitsilis/v-treeview
 
 ## Configuration (optional)
 
 ```Javascript
 {
-	colors: {
-		indicators: {
-			text: "White",
-			lines: "RoyalBlue",
-			background: "RoyalBlue",
-		},
-		ghost: {
-			text: "White",
-			background: "RoyalBlue"
-		},
-		notDraggable: {
-			text: "Red"
-		}
-	}
+  colors: {
+    indicators: {
+      text: "White",
+      lines: "RoyalBlue",
+      background: "RoyalBlue",
+  	},
+    ghost: {
+      text: "White",
+      background: "RoyalBlue"
+  	},
+    notDraggable: {
+      text: "Red"
+    }
+  }
 }
 ```
 
@@ -64,7 +64,6 @@ V - Tree is a Vue 3 component with drag and drop functionality.
 > Make sure it's a reactive property
 
 ### Node properties
-
 | Property | Type | Required | Description |
 | -------- | ---- | ---------| ----------- |
 | id | integer | true | Used in the tree to differentiate each node |
@@ -80,9 +79,18 @@ V - Tree is a Vue 3 component with drag and drop functionality.
 | droppable | boolean | true | Determines if nodes allowed to be dropped |
 
 ## Initialization
-
 ```Vue
-<Tree :config="config" :data="data">
+<template>
+  <Tree :data="data">
+</template>
+
+<script setup>
+  import Tree from "@evangelos_bitsilis/v-treeview"
+  import "@evangelos_bitsilis/v-treeview/dist/style.css";
+
+  import someData from "someFile.json"
+  const data = reactive(someData);
+</script>
 ```
 
 ### Events
@@ -99,6 +107,9 @@ Emitted every time the order of the tree nodes changes. And returns the updated 
 </template>
 
 <script setup>
+  import Tree from "@evangelos_bitsilis/v-treeview"
+  import "@evangelos_bitsilis/v-treeview/dist/style.css";
+
   import someData from "someFile.json";
   const data = reactive(someData);
 
