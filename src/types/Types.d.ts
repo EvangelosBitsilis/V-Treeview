@@ -42,6 +42,6 @@ export type Item = {
 	state: {
 		expanded: boolean,
 		draggable: boolean,
-		dropable: boolean
+		droppable: boolean
 	}
 }

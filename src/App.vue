@@ -21,7 +21,7 @@
 					</div>
 					<div>
 						<input :id="data.item.slug" type="checkbox"
-							v-model="data.item.state.dropable">
+							v-model="data.item.state.droppable">
 						<label style="margin-left: 10px;" :for="data.item.slug">
 							Droppable
 						</label>

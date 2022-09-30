@@ -14,11 +14,11 @@ V - Treeview is a Vue 3 component with drag n drop and collapse functionality.
       text: "White",
       lines: "RoyalBlue",
       background: "RoyalBlue",
-  	},
+    },
     ghost: {
       text: "White",
       background: "RoyalBlue"
-  	},
+    },
     notDraggable: {
       text: "Red"
     }

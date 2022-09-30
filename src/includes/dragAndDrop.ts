@@ -70,7 +70,7 @@ export default function dragAndDrop(config: Config, emit: (name: "orderChanged",
 		}
 		else if (positionY <= thirds && item.children.length === 0) {
 
-			if ( ! item.state.dropable && event.dataTransfer !== null) {
+			if ( ! item.state.droppable && event.dataTransfer !== null) {
 
 				event.dataTransfer.dropEffect = "none";
 				
