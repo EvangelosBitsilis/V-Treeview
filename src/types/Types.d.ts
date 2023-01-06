@@ -24,7 +24,7 @@ export type Config = {
 
 export type Intend = {
 	item?: Item
-	parentId?: number
+	parentId?: number|string
 	index?: number
 	position: Position
 };
@@ -36,7 +36,7 @@ export type Dragging = {
 }
 
 export type Item = {
-	id: number,
+	id: number|string,
 	text: string,
 	children: Array<Item>,
 	state: {

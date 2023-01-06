@@ -30,26 +30,19 @@ export default {
 import type { Item } from "@/types/Types";
 import TreeItem from "./TreeItem.vue";
 
-const props = defineProps({
+defineProps({
 	data: {
 		type: Array<Item>,
 		required: true
 	},
 	parentId: {
-		type: Number,
+		type: [Number, String],
 		required: true
 	},
 	ancestors: {
-		type: Array<number>,
+		type: Array<number|string>,
 		required: true
 	}
 });
-
-// const extendedPath = computed(() => props.path.concat([index]) as Array<number>)
-// function pushToPath(index: Number) {
-
-// 	return props.path.concat([index]) as Array<number>;
-// }
-
 </script>
 

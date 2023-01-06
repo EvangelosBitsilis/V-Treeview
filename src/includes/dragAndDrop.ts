@@ -15,33 +15,37 @@ export default function dragAndDrop(config: Config, emit: (name: "orderChanged",
 		position: 0
 	});
 	
-	function dragStart (event: DragEvent, element: HTMLDivElement, item: Item) {
+	function dragStart (event: DragEvent, element: HTMLDivElement | null, item: Item) {
 
-		dragging.element = element;
-
-		dragging.ghost = document.createElement("DIV") as HTMLDivElement;
-		dragging.ghost.classList.add("bw-ghost");
-		dragging.ghost.style.color = config.colors.ghost.text;
-		dragging.ghost.style.backgroundColor = config.colors.ghost.background;
-		dragging.ghost.textContent = item.text;
-
-		dragging.item = item;
-
-		document.body.appendChild(dragging.ghost);
-
-		event.dataTransfer!.effectAllowed = "all";
-
-		if ( dragging.ghost !== undefined ) {
-
-			event.dataTransfer!.setDragImage(dragging.ghost, -20, -8);
+		if (element != null) {
+			
+			dragging.element = element;
+	
+			dragging.ghost = document.createElement("DIV") as HTMLDivElement;
+			dragging.ghost.classList.add("bw-ghost");
+			dragging.ghost.style.color = config.colors.ghost.text;
+			dragging.ghost.style.backgroundColor = config.colors.ghost.background;
+			dragging.ghost.textContent = item.text;
+	
+			dragging.item = item;
+	
+			document.body.appendChild(dragging.ghost);
+	
+			if (event.dataTransfer != null) {
+				
+				event.dataTransfer.effectAllowed = "all";
+		
+				if ( dragging.ghost !== undefined ) {
+		
+					event.dataTransfer.setDragImage(dragging.ghost, -20, -8);
+				}
+			}
 		}
 	}
 
-	function dragOver (event: DragEvent, item: Item, infoBox: HTMLDivElement, index: number, ancestors: Array<number>, parentId: number) {
+	function dragOver (event: DragEvent, item: Item, infoBox: HTMLDivElement, index: number, ancestors: Array<number|string>, parentId: number|string|undefined) {
 		
-		let dropNotAllowed = false;
-
-		if ( dropNotAllowed || 
+		if (
 			(dragging.item !== undefined && ancestors.includes(dragging.item.id)) ||
 			dragging.item?.id === undefined || 
 			item.id === dragging.item.id ) {
@@ -50,42 +54,43 @@ export default function dragAndDrop(config: Config, emit: (name: "orderChanged",
 			intend.index = undefined;
 			intend.item = undefined;
 			intend.position = 0;
-
-			return false;
-		}
-
-		const rect = infoBox.getBoundingClientRect();
-		const positionY = event.clientY - rect.top;
-		const quarter = rect.height / 4;
-		const thirds = quarter * 3;
-		const half = quarter * 2;
-
-		intend.item = item;
-		intend.index = index;
-		intend.parentId = parentId;
-
-		if ( (item.children.length !== 0 && positionY <= half ) || positionY <= quarter ) {
-
-			intend.position = 1;
-		}
-		else if (positionY <= thirds && item.children.length === 0) {
-
-			if ( ! item.state.droppable && event.dataTransfer !== null) {
-
-				event.dataTransfer.dropEffect = "none";
-				
-				intend.parentId = undefined,
-				intend.index = undefined;
-				intend.item = undefined;
-				intend.position = 0;
-			}
-
-			intend.position = 2;
 		}
 		else {
 
-			intend.position = 3;
+			const rect = infoBox.getBoundingClientRect();
+			const positionY = event.clientY - rect.top;
+			const quarter = rect.height / 4;
+			const thirds = quarter * 3;
+			const half = quarter * 2;
+	
+			intend.item = item;
+			intend.index = index;
+			intend.parentId = parentId;
+	
+			if ( (item.children.length !== 0 && positionY <= half ) || positionY <= quarter ) {
+	
+				intend.position = 1;
+			}
+			else if (positionY <= thirds && item.children.length === 0) {
+	
+				if ( ! item.state.droppable && event.dataTransfer !== null) {
+	
+					event.dataTransfer.dropEffect = "none";
+					
+					intend.parentId = undefined,
+					intend.index = undefined;
+					intend.item = undefined;
+					intend.position = 0;
+				}
+	
+				intend.position = 2;
+			}
+			else {
+	
+				intend.position = 3;
+			}
 		}
+
 	}
 
 	function dragEnd (index: number, parentId: number) {	
@@ -144,7 +149,7 @@ export default function dragAndDrop(config: Config, emit: (name: "orderChanged",
 		}
 	}
 	
-	function findParent(items: Array<Item>, id: number): Array<Item> {
+	function findParent(items: Array<Item>, id: number|string): Array<Item> {
 	
 		if (id === 0) {
 			

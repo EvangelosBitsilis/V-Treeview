@@ -30,6 +30,7 @@ import { onMounted, provide, reactive, type PropType } from "vue";
 import TreeLevel from "./components/TreeLevel.vue";
 import type { Config, Item } from "@/types/Types";
 import dragAndDrop from "../includes/dragAndDrop";
+import utility from "../includes/utility";
 
 const props = defineProps({
 	config: {
@@ -66,8 +67,10 @@ onMounted(() => {
 });
 
 const { dragStart, dragOver, dragEnd, intend, dragging } = dragAndDrop(normalizedConfig, emit, props.data);
+const { toggleExpandedState } = utility();
 
 provide("listeners", {dragStart, dragOver, dragEnd});
+provide("utility", { toggleExpandedState });
 provide("intend", intend);
 provide("dragging", dragging);
 provide("config", normalizedConfig);

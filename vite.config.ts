@@ -15,13 +15,13 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: path.resolve(__dirname, "./src/index.ts"),
-      		name: "V-Treeview"
+			name: "V-Treeview"
 		},
 		rollupOptions: {
 			external: ["vue"],
 			output: {
-			  	inlineDynamicImports: true,
-			  	globals: {
+				inlineDynamicImports: true,
+				globals: {
 					vue: "Vue",
 				},
 			},

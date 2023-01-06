@@ -1,6 +1,6 @@
 {
 	"name": "@evangelos_bitsilis/v-treeview",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": false,
 	"library": "v-treeview",
 	"license": "MIT",
@@ -54,6 +54,6 @@
 		"typescript": "~4.7.2",
 		"vite": "^2.9.9",
 		"vitest": "^0.13.0",
-		"vue-tsc": "^0.35.2"
+		"vue-tsc": "^1.0.1"
 	}
 }
